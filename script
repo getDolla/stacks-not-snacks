@@ -1,0 +1,17 @@
+box
+-250 -210 0 80 80 80
+torus
+30 60 0 26 140
+sphere
+1040 1740 0 80
+ident
+rotate
+z 38
+rotate
+x 84
+move
+348 184 0
+apply
+display
+save
+pic.png
