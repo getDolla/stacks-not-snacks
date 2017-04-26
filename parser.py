@@ -52,7 +52,7 @@ def parse_file( fname, edges, transform, screen, color ):
 
     stack = new_matrix()
     ident(stack)
-    stack = [ [ i[:] for i in stack ] ]
+    stack = [ [ [ num for num in row ] for row in stack ] ]
     print stack
 
     f = open(fname)
