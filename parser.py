@@ -53,7 +53,7 @@ def parse_file( fname, edges, transform, screen, color ):
     stack = new_matrix()
     ident(stack)
     stack = [ [ [ num for num in row ] for row in stack ] ]
-    
+
     f = open(fname)
     lines = f.readlines()
 
@@ -162,12 +162,11 @@ def parse_file( fname, edges, transform, screen, color ):
 
         elif line == 'apply':
             matrix_mult( transform, edges )
-
-        elif line == 'display' or line == 'save':
-
-            if line == 'display':
+            
+        elif line == 'display':
                 display(screen)
-            else:
+
+        elif line == 'save':
                 save_extension(screen, args[0])
 
         c+= 1
