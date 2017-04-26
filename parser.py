@@ -53,8 +53,7 @@ def parse_file( fname, edges, transform, screen, color ):
     stack = new_matrix()
     ident(stack)
     stack = [ [ [ num for num in row ] for row in stack ] ]
-    print stack
-
+    
     f = open(fname)
     lines = f.readlines()
 
@@ -70,20 +69,13 @@ def parse_file( fname, edges, transform, screen, color ):
             #print 'args\t' + str(args)
 
         if line == "push":
-            #print stack
             stack.append( [ [ num for num in row ] for row in stack[-1] ] )
-            print "\npush: stack"
-            for i in stack:
-                print str(i) + "\n\tid: " + str(id(i)) + "\n"
 
         elif line == "pop":
-            print "\npop: stack before"
-            for i in stack:
-                print str(i) + "\n\tid: " + str(id(i)) + "\n"
+            # print "\npop: stack before"
+            # for i in stack:
+            #     print str(i) + "\n\tid: " + str(id(i)) + "\n"
             stack.pop()
-            print "\npop: stack after"
-            for i in stack:
-                print str(i) + "\n\tid: " + str(id(i)) + "\n"
 
         elif line == 'sphere':
             #print 'SPHERE\t' + str(args)
