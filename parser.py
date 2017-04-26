@@ -1,6 +1,7 @@
 from display import *
 from matrix import *
 from draw import *
+from copy import deepcopy
 
 """
 Goes through the file named filename and performs all of the actions listed in that file.
@@ -51,7 +52,7 @@ def parse_file( fname, edges, transform, screen, color ):
 
     stack = new_matrix()
     ident(stack)
-    stack = [ stack[:] ]
+    stack = [ [ i[:] for i in stack ] ]
     print stack
 
     f = open(fname)
@@ -70,7 +71,7 @@ def parse_file( fname, edges, transform, screen, color ):
 
         if line == "push":
             #print stack
-            stack.append( stack[-1][:] )
+            stack.append( deepcopy(stack[-1]) )
             print "\npush: stack"
             for i in stack:
                 print str(i) + "\n\tid: " + str(id(i)) + "\n"
@@ -142,6 +143,7 @@ def parse_file( fname, edges, transform, screen, color ):
             #print 'SCALE\t' + str(args)
             t = make_scale(float(args[0]), float(args[1]), float(args[2]))
             matrix_mult(t, stack[-1])
+
 
         elif line == 'move':
             #print 'MOVE\t' + str(args)
