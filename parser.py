@@ -1,7 +1,7 @@
 from display import *
 from matrix import *
 from draw import *
-from copy import deepcopy
+#from copy import deepcopy
 
 """
 Goes through the file named filename and performs all of the actions listed in that file.
@@ -71,7 +71,7 @@ def parse_file( fname, edges, transform, screen, color ):
 
         if line == "push":
             #print stack
-            stack.append( deepcopy(stack[-1]) )
+            stack.append( [ [ num for num in row ] for row in stack[-1] ] )
             print "\npush: stack"
             for i in stack:
                 print str(i) + "\n\tid: " + str(id(i)) + "\n"
