@@ -152,6 +152,7 @@ def parse_file( fname, edges, transform, screen, color ):
                 t = make_rotY(theta)
             else:
                 t = make_rotZ(theta)
+
             matrix_mult(t, stack[-1])
 
         elif line == 'clear':
@@ -162,11 +163,11 @@ def parse_file( fname, edges, transform, screen, color ):
 
         elif line == 'apply':
             matrix_mult( transform, edges )
-            
+
         elif line == 'display':
-                display(screen)
+            display(screen)
 
         elif line == 'save':
-                save_extension(screen, args[0])
+            save_extension(screen, args[0])
 
         c+= 1
