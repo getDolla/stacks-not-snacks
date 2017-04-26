@@ -46,9 +46,15 @@ The file follows the following format:
 See the file script for an example of the file format
 """
 ARG_COMMANDS = [ 'line', 'scale', 'move', 'rotate', 'save', 'circle', 'bezier', 'hermite', 'box', 'sphere', 'torus' ]
-stack = [ ident(new_matrix()) ]
 
 def parse_file( fname, edges, transform, screen, color ):
+
+    top = new_matrix()
+    ident(top)
+    stack = [ top[:] ]
+
+    print top
+    print stack
 
     f = open(fname)
     lines = f.readlines()
@@ -65,12 +71,25 @@ def parse_file( fname, edges, transform, screen, color ):
             #print 'args\t' + str(args)
 
         if line == "push":
-            stack.append( stack[len(stack) - 1][:] )
-            top = stack[len(stack) - 1]
+            #print stack
+            stack.append( top[:] )
+            top = stack[-1]
+            print "\npush: top\n" + str(top)
+            print "\npush: stack"
+            for i in stack:
+                print i
 
         elif line == "pop":
+            print "\npop: top before\n" + str(top)
+            print "\npop: stack before"
+            for i in stack:
+                print i
             stack.pop()
-            top = stack[len(stack) - 1]
+            top = stack[-1]
+            print "\npop: top after\n" + str(top)
+            print "\npop: stack after"
+            for i in stack:
+                print i
 
         elif line == 'sphere':
             #print 'SPHERE\t' + str(args)
