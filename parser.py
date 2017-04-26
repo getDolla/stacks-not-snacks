@@ -136,7 +136,6 @@ def parse_file( fname, edges, transform, screen, color ):
             t = make_scale(float(args[0]), float(args[1]), float(args[2]))
             matrix_mult(t, stack[-1])
 
-
         elif line == 'move':
             #print 'MOVE\t' + str(args)
             t = make_translate(float(args[0]), float(args[1]), float(args[2]))
