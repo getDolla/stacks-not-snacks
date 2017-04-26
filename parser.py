@@ -74,22 +74,22 @@ def parse_file( fname, edges, transform, screen, color ):
             #print stack
             stack.append( top[:] )
             top = stack[-1]
-            print "\npush: top\n" + str(top)
+            print "\npush: top\n\t" + str(top) + "\n\tid: " + str(id(top))
             print "\npush: stack"
             for i in stack:
-                print i
+                print str(i) + "\n\tid: " + str(id(i)) + "\n"
 
         elif line == "pop":
-            print "\npop: top before\n" + str(top)
+            print "\npop: top before\n\t" + str(top) + "\n\tid: " + str(id(top))
             print "\npop: stack before"
             for i in stack:
-                print i
+                print str(i) + "\n\tid: " + str(id(i)) + "\n"
             stack.pop()
             top = stack[-1]
-            print "\npop: top after\n" + str(top)
+            print "\npop: top after\n\t" + str(top) + "\n\tid: " + str(id(top))
             print "\npop: stack after"
             for i in stack:
-                print i
+                print str(i) + "\n\tid: " + str(id(i)) + "\n"
 
         elif line == 'sphere':
             #print 'SPHERE\t' + str(args)
